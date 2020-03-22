@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Brincando com JavaScript</title>
+</head>
+
+<body>
+    <h1>Página Inicial</h1>
+    <p id="paragrafo">Exemplo de aula <span>teste</span> Exemplo de aula <span>Lorem <strong>negrito<strong></span>
+        Exemplo de aula</p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li id="item">Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 8</li>
+        <li id="item9">Item 9</li>
+    </ul>
+    <div>
+        <p>
+            <label>Insira o primeiro valor: </label>
+            <input type="number" name="" id="n1"><br />
+            <label>Insira o segundo valor: </label>
+            <input type="number" name="" id="n2"><br />
+        </p>
+    </div>
+    <div>
+        <p>
+            <button onclick="pow(n1.value, n2.value)">resultado da potência</button>
+            <button onclick="max(n1.value, n2.value)">resultado da maxima</button>
+            <button onclick="min(n1.value, n2.value)">resultado do minimo</button><br />
+            <span id="quest2"></span><br />
+            <span id="quest3"></span><br />
+            <span id="quest4"></span><br />
+        </p>
+    </div>
+    <div>
+        <p>
+            <button onclick="mostrarAluno()">Mostrar Objeto</button>
+            <button onclick="trocarNome()">Mudar nome</button>
+            <button onclick="apagarNome()">Remover nome</button>
+            <button onclick="procurarTime()">Procurar time</button><br />
+            <span id="quest5"></span><br />
+            <span id="quest6"></span><br />
+            <span id="quest7"></span><br />
+            <span id="quest8"></span><br />
+        </p>
+    </div>
+    <div>
+        <p>
+            <button onclick="totalSalarios()">mostrar Salarios</button>
+        </p>
+    </div>
+</body>
+<script>
+    function min_um(a, b) {
+        return (a <= b) ? a : b
+    }
+
+    function min_dois(a, b) {
+        let result = null
+        if (a <= b) {
+            result = a
+        } else {
+            result = b
+        }
+        return result;
+    }
+
+    function max(x, y) {
+        if (x > y) {
+            document.getElementById("quest3").innerHTML = "resposta:" + x;
+        } else {
+            document.getElementById("quest3").innerHTML = "resposta:" + y;
+        }
+    }
+
+    function min(x, y) {
+        if (x < y) {
+            document.getElementById("quest4").innerHTML = "resposta:" + x;
+        } else {
+            document.getElementById("quest4").innerHTML = "resposta:" + y;
+        }
+    }
+
+    function pow(x, y) {
+        let resultadoP = Math.pow(x, y);
+        document.getElementById("quest2").innerHTML = "resposta:" + resultadoP;
+    }
+
+    let Aluno = {
+        name: "Bruno",
+        lastname: "Gabriel"
+    }
+
+    function mostrarAluno() {
+        document.getElementById("quest5").innerHTML = "resposta:" + Aluno.name + " " + Aluno.lastname;
+        console.log(Aluno);
+    }
+
+    function trocarNome() {
+        Aluno.name = "Flavio";
+        document.getElementById("quest6").innerHTML = "resposta:" + Aluno.name + " " + Aluno.lastname;
+        console.log(Aluno);
+    }
+
+    function apagarNome() {
+        delete Aluno.name;
+        document.getElementById("quest7").innerHTML = "resposta:" + Aluno.name + " " + Aluno.lastname;
+        console.log(Aluno);
+    }
+
+    function procurarTime() {
+        try {
+            console.log(Aluno.time);
+            document.getElementById("quest8").innerHTML = "resposta:" + Aluno.time;
+        } catch (e) {
+            return document.getElementById("quest8").innerHTML = "resposta: Não existe time";
+            console.log("Não existe time");
+
+        }
+    }
+
+    let salarios = {
+        Neymar: 100,
+        Ronaldinho: 160,
+        Ronaldo: 130
+    }
+
+    function totalSalarios() {
+        let totalSalario = salarios.Neymar + salarios.Ronaldinho + salarios.Ronaldo;
+        alert(totalSalario);
+        console.log(totalSalario);
+    }
+
+    function exibirInnerHTML(div) {
+        div = '<div></div>';
+        console.log(div);
+        div = document.getElementById("item");
+        console.log(div);
+        div = document.getElementsByTagName("p");
+        console.log(div);
+        div = document.getElementsByTagName("strong");
+        console.log(div);
+        div = document.getElementsByTagName("strong");
+        console.log(div);
+    }
+	
+</script>
+</html>
